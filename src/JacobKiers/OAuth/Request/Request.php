@@ -69,6 +69,7 @@ class Request implements RequestInterface
     public function __construct($http_method, $http_url, array $parameters = null)
     {
         if(!isset($parameters['oauth_consumer_key'])) {
+            // Another exception
             throw new OAuthException('You need a OAuth consumer key to proceed');
         }
         $parameters = ($parameters) ? $parameters : array();
